@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "open-with",
+  "short_name": "open-with",
+  "description": "Open's with!",
+  "version": "0.0.1",
+  "minimum_chrome_version": "80",
+  "permissions": ["contextMenus", "tabs"],
+  "background": { "page": "background.html" }
+}

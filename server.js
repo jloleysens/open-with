@@ -4,19 +4,19 @@ const PORT = 1337
 
 const server = http.createServer()
 
+const CHROME_APP_PATH =
+  '/Applications/Google\\ Chrome\\ Canary.app/Contents/MacOS/Google\\ Chrome\\ Canary'
+
 /**
  * @param {string} target
  */
-const launchGoogleChrome = async target => {
+const launchGoogleChrome = async (target) => {
   try {
     await new Promise((res, rej) =>
-      cp.exec(
-        `/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome ${target}`,
-        (err, result) => {
-          if (err) rej(err)
-          else res(result)
-        }
-      )
+      cp.exec(`${CHROME_APP_PATH} ${target}`, (err, result) => {
+        if (err) rej(err)
+        else res(result)
+      })
     )
   } catch (e) {
     console.log('failed', e.message)
